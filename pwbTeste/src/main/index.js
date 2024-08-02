@@ -56,14 +56,18 @@ app.whenReady().then(() => {
       console.error('URL must be a string');
       return;
     }
+
   
     fetch(url)
       .then(response => response.text())
       .then(data => {
         console.log(data); // Exibe a resposta do servidor Go
+        event.reply('retorno', data);
       })
       .catch(error => console.error('Error fetching data:', error));
   });
+
+  
 
   createWindow()
 
